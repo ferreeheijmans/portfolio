@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferree Heijmans — AI & Automation Strategist</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./assets/Ferrree Heijmans_Headshot.jpg">
+    <link rel="apple-touch-icon" href="./assets/Ferrree Heijmans_Headshot.jpg">
+
+    <!-- SEO -->
+    <meta name="description" content="Ferree Heijmans — AI & Automation Strategist. Building production workflows, custom AI agents, and automation systems that drive measurable business outcomes.">
+    <meta name="author" content="Ferree Heijmans">
+
+    <!-- Open Graph (social link previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ferreeheijmans.github.io/portfolio/">
+    <meta property="og:title" content="Ferree Heijmans — AI & Automation Strategist">
+    <meta property="og:description" content="AI & automation specialist who builds production systems that drive measurable business outcomes. 50+ workflows, 200+ hours saved/month.">
+    <meta property="og:image" content="https://ferreeheijmans.github.io/portfolio/assets/Ferrree Heijmans_Headshot.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ferree Heijmans — AI & Automation Strategist">
+    <meta name="twitter:description" content="AI & automation specialist. 50+ production workflows, $50K+/mo operational savings.">
+    <meta name="twitter:image" content="https://ferreeheijmans.github.io/portfolio/assets/Ferrree Heijmans_Headshot.jpg">
+
+    <!-- Fonts -->
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+     * CSS Variables & Base Setup 
+     */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-card: #ffffff;
+            --accent: #0071e3;
+            --accent-light: rgba(0, 113, 227, 0.08);
+            --accent-hover: #0077ED;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-muted: #86868b;
+            --border: #d2d2d7;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --gradient-subtle: linear-gradient(135deg, #667eea 0%, #0071e3 100%);
+
+            --font-display: 'Clash Display', 'Outfit', sans-serif;
+            --font-body: 'Satoshi', 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --section-padding: 8rem 0;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout & Utility Classes */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        .glass-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(210, 210, 215, 0.3);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Availability Badge */
+        .availability-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: #34c759;
+            padding: 0.3rem 0.75rem;
+            border: 1px solid rgba(52, 199, 89, 0.3);
+            border-radius: 100px;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .availability-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #34c759;
+            flex-shrink: 0;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @media (max-width: 768px) {
+            .availability-badge { display: none; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* UI Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: white;
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 0 4px var(--bg-primary);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Workflows Grid & Cards */
+        .workflows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        @media (min-width: 1024px) {
+            .workflows-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .workflow-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+            position: relative;
+        }
+
+        .workflow-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.3) 25%, transparent 30%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .workflow-card:hover::after {
+            opacity: 1;
+        }
+
+        .workflow-card:hover {
+            box-shadow: var(--shadow-sm);
+            transform: scale(1.003);
+        }
+
+        .workflow-image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: var(--bg-secondary);
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .workflow-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .workflow-image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .workflow-placeholder {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+
+        .workflow-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .tag-production {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .tag-template {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        .workflow-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-desc {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .workflow-stack {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+
+        /* Tech Stack Marquee */
+        .marquee-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            overflow: hidden;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            margin-left: -50vw;
+            padding: 2rem 0;
+            background: linear-gradient(0deg, transparent, rgba(0, 113, 227, 0.02) 50%, transparent);
+        }
+
+        .marquee-row {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .marquee-row.anim-left {
+            animation: scroll-left 40s linear infinite;
+        }
+
+        .marquee-row.anim-right {
+            animation: scroll-right 45s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .dna-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+        }
+
+        .dna-pill img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Education */
+        .edu-grid {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .edu-card {
+            min-width: 300px;
+            flex: 1;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            scroll-snap-align: start;
+        }
+
+        .edu-year {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .edu-school {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .edu-school img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .edu-location {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .edu-summary {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        /* Timeline Company Logos */
+        .timeline-company {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-company img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
+
+        /* n8n Flow Mockup */
+        .n8n-flow {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4 / 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .n8n-canvas {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .n8n-node {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: var(--font-body);
+            box-shadow: var(--shadow-sm);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .n8n-node img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+
+        .n8n-node.trigger {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .n8n-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .n8n-lines path {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 1.5;
+        }
+
+        .n8n-pulse {
+            fill: var(--accent);
+            filter: drop-shadow(0 0 4px var(--accent));
+        }
+
+        @keyframes pulse-path-1 {
+            0% {
+                offset-distance: 0%;
+                opacity: 1;
+            }
+
+            25% {
+                offset-distance: 100%;
+                opacity: 1;
+            }
+
+            25.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-path-2 {
+
+            0%,
+            25% {
+                offset-distance: 0%;
+                opacity: 0;
+            }
+
+            25.01% {
+                offset-distance: 0%;
+                opacity: 1;
+            }
+
+            50% {
+                offset-distance: 100%;
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-path-3 {
+
+            0%,
+            50% {
+                offset-distance: 0%;
+                opacity: 0;
+            }
+
+            50.01% {
+                offset-distance: 0%;
+                opacity: 1;
+            }
+
+            75% {
+                offset-distance: 100%;
+                opacity: 1;
+            }
+
+            75.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-path-4 {
+
+            0%,
+            75% {
+                offset-distance: 0%;
+                opacity: 0;
+            }
+
+            75.01% {
+                offset-distance: 0%;
+                opacity: 1;
+            }
+
+            100% {
+                offset-distance: 100%;
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 0 3rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--bg-primary);
+        }
+
+        .footer-tagline {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 480px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .footer-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .footer-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: #ffffff;
+            color: var(--text-primary);
+            border-radius: 980px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .footer-cta-primary:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .footer-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 980px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .footer-cta-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .footer-copy {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.05em;
+        }
+
+        .orbital-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 10;
+            font-family: var(--font-mono);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#">
+                <img src="./assets/Ferrree Heijmans_Headshot.jpg" alt="Ferree Heijmans"
+                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-sm);">
+            </a>
+            <ul style="display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#workflows">Workflows</a></li>
+                <li><a href="#tech">Tech</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <span class="availability-badge">
+                <span class="availability-dot"></span>
+                Available for projects
+            </span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero"
+        style="min-height: 100vh; display: flex; align-items: center; padding-top: var(--header-height);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column-reverse; gap: 4rem; align-items: center;"
+                class="hero-flex">
+                <div style="flex: 1; max-width: 600px;">
+                    <h1 style="margin-bottom: 0.5rem; line-height: 0.9;">FERREE HEIJMANS</h1>
+                    <h2
+                        style="font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: none; letter-spacing: 0; font-family: var(--font-body); font-weight: 500;">
+                        AI & Automation Strategist
+                    </h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--text-primary);">
+                        I build systems that save teams 200+ hours and $50K+ per month.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#workflows" class="btn btn-primary">View My Work ↓</a>
+                        <a href="https://linkedin.com/in/ferreeheijmans" target="_blank"
+                            class="btn btn-secondary">LinkedIn →</a>
+                    </div>
+                </div>
+                <div style="flex: 1; display: flex; justify-content: center; width: 100%; max-width: 420px;">
+                    <!-- n8n Flow Mockup -->
+                    <div class="n8n-flow">
+                        <div class="n8n-canvas">
+                            <!-- Nodes on a 5-row grid, centered horizontally -->
+                            <!-- Row 1: Webhook (trigger) - centered -->
+                            <div class="n8n-node trigger" style="top: 2%; left: 50%; transform: translateX(-50%);">
+                                <img src="./assets/webhook.png" alt=""> Webhook
+                            </div>
+                            <!-- Row 2: Slack (left) + GPT-5.2 (right) -->
+                            <div class="n8n-node" style="top: 22%; left: 20%; transform: translateX(-50%);">
+                                <img src="./assets/slack.png" alt=""> Slack
+                            </div>
+                            <div class="n8n-node" style="top: 22%; left: 80%; transform: translateX(-50%);">
+                                <img src="./assets/openai.webp" alt=""> GPT-5.2
+                            </div>
+                            <!-- Row 3: Notion - centered -->
+                            <div class="n8n-node" style="top: 42%; left: 50%; transform: translateX(-50%);">
+                                <img src="https://cdn.simpleicons.org/notion/0071e3" alt=""
+                                    onerror="this.style.display='none'"> Notion
+                            </div>
+                            <!-- Row 4: Shopify (left) + Sheets (right) -->
+                            <div class="n8n-node" style="top: 62%; left: 20%; transform: translateX(-50%);">
+                                <img src="https://cdn.simpleicons.org/shopify/0071e3" alt=""
+                                    onerror="this.style.display='none'"> Shopify
+                            </div>
+                            <div class="n8n-node" style="top: 62%; left: 80%; transform: translateX(-50%);">
+                                <img src="https://cdn.simpleicons.org/googlesheets/0071e3" alt=""
+                                    onerror="this.style.display='none'"> Sheets
+                            </div>
+                            <!-- Row 5: Meta Ads - centered -->
+                            <div class="n8n-node" style="top: 82%; left: 50%; transform: translateX(-50%);">
+                                <img src="https://cdn.simpleicons.org/meta/0071e3" alt=""
+                                    onerror="this.style.display='none'"> Meta Ads
+                            </div>
+
+                            <!-- SVG Straight Lines -->
+                            <svg class="n8n-lines" viewBox="0 0 420 525" preserveAspectRatio="xMidYMid meet">
+                                <!-- Webhook → Slack: down then left -->
+                                <path id="path1" d="M 210 35 L 210 70 L 84 70 L 84 115" />
+                                <!-- Webhook → GPT: down then right -->
+                                <path id="path2" d="M 210 35 L 210 70 L 336 70 L 336 115" />
+                                <!-- Slack → Notion: down then right -->
+                                <path id="path3" d="M 84 155 L 84 185 L 210 185 L 210 220" />
+                                <!-- GPT → Notion: down then left -->
+                                <path id="path4" d="M 336 155 L 336 185 L 210 185 L 210 220" />
+                                <!-- Notion → Shopify: down then left -->
+                                <path id="path5" d="M 210 260 L 210 290 L 84 290 L 84 325" />
+                                <!-- Notion → Sheets: down then right -->
+                                <path id="path6" d="M 210 260 L 210 290 L 336 290 L 336 325" />
+                                <!-- Shopify → Meta: down then right -->
+                                <path id="path7" d="M 84 365 L 84 395 L 210 395 L 210 430" />
+                                <!-- Sheets → Meta: down then left -->
+                                <path id="path8" d="M 336 365 L 336 395 L 210 395 L 210 430" />
+
+                                <!-- Animated Pulse Dots -->
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 210 35 L 210 70 L 84 70 L 84 115'); animation: pulse-path-1 4s ease-in-out infinite;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 210 35 L 210 70 L 336 70 L 336 115'); animation: pulse-path-1 4s ease-in-out infinite; animation-delay: 0.3s;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 84 155 L 84 185 L 210 185 L 210 220'); animation: pulse-path-2 4s ease-in-out infinite;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 336 155 L 336 185 L 210 185 L 210 220'); animation: pulse-path-2 4s ease-in-out infinite; animation-delay: 0.3s;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 210 260 L 210 290 L 84 290 L 84 325'); animation: pulse-path-3 4s ease-in-out infinite;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 210 260 L 210 290 L 336 290 L 336 325'); animation: pulse-path-3 4s ease-in-out infinite; animation-delay: 0.3s;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 84 365 L 84 395 L 210 395 L 210 430'); animation: pulse-path-4 4s ease-in-out infinite;">
+                                </circle>
+                                <circle r="4" class="n8n-pulse"
+                                    style="offset-path: path('M 336 365 L 336 395 L 210 395 L 210 430'); animation: pulse-path-4 4s ease-in-out infinite; animation-delay: 0.3s;">
+                                </circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                @media (min-width: 900px) {
+                    .hero-flex {
+                        flex-direction: row !important;
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 style="text-align: center;">ABOUT</h2>
+            <div class="about-grid fade-in">
+                <div class="about-text" style="font-size: 1.25rem;">
+                    <p>
+                        AI & automation specialist who builds production systems that drive measurable business
+                        outcomes. Holding a Business Management degree from institutions across 3 European countries
+                        (Finland
+                        → Belgium → France) while working remotely as an automation engineer for a Sydney-based digital
+                        marketing agency.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="50" data-suffix="+">0</div>
+                        <div class="stat-label">Production Workflows</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="50" data-prefix="$" data-suffix="K+/mo">0</div>
+                        <div class="stat-label">Operational Savings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="200" data-suffix="+">0</div>
+                        <div class="stat-label">Hours Saved/Month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="20" data-suffix="+">0</div>
+                        <div class="stat-label">Custom Agents Built</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" style="background-color: var(--bg-secondary);" class="fade-in">
+        <div class="container">
+            <h2 style="text-align: center;">EXPERIENCE</h2>
+            <div class="timeline">
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-date">2025–Present</span>
+                    <h3 class="timeline-title">AI & Automation Associate</h3>
+                    <div class="timeline-company"><img src="./assets/webprofits.png" alt="Webprofits">Webprofits |
+                        Sydney (Remote)</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Built and maintained 30+ production workflows using n8n, AI agents, and custom API
+                                integrations</li>
+                            <li>Integrated automation across Slack, Notion, Figma, Meta Ads, Google Ads, Klaviyo,
+                                Shopify</li>
+                            <li>Designed AI-powered creative analysis system adopted by global teams across 3 offices
+                            </li>
+                            <li>Freed 200+ hours/month of team capacity by automating reporting and operational tasks
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-title">Business Development Analyst</h3>
+                    <div class="timeline-company"><img src="./assets/abn_cleanroom_technology.jpeg" alt="ABN">ABN
+                        Cleanroom Technology | Belgium</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Built automated lead generation workflow that grew qualified pipeline by ~25%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-title">Operations Intern</h3>
+                    <div class="timeline-company"><img src="./assets/gravitystack.png" alt="Gravity Stack">Gravity Stack
+                        | San Francisco</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Supported go-to-market research and internal operations at an early-stage legal tech
+                                startup</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflows Section -->
+    <section id="workflows" class="fade-in">
+        <div class="container">
+            <h2 style="text-align: center;">WHAT I BUILD</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+                Production workflows and shareable templates — built with n8n, AI agents, and custom integrations.
+            </p>
+
+            <div class="workflows-grid">
+                <!-- Card 1 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-creative-uploader.png">
+                        <!-- fallback placeholder text in case image doesn't load/exist -->
+                        <img src="./assets/workflow-creative-uploader.png" alt="Creative Uploader"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Automated Creative Uploader</h3>
+                    <p class="workflow-desc">End-to-end creative asset pipeline: frontend upload → Supabase storage →
+                        Gemini AI analysis → GPT-5.2 standardization → syncs to Air, Meta Ads, Airtable, BigQuery.</p>
+                    <div class="workflow-stack">Stack: n8n, Supabase, Gemini, GPT-5.2, Meta Ads API</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-meeting-processor.png">
+                        <img src="./assets/workflow-meeting-processor.png" alt="Meeting Processor"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Account Manager Meeting Processor</h3>
+                    <p class="workflow-desc">Processes meeting transcripts → AI extracts summaries, tasks, and email
+                        drafts → creates Notion tasks with assignees → Slack summary with hyperlinked URLs. Scales
+                        across 20+ clients.</p>
+                    <div class="workflow-stack">Stack: n8n, OpenAI, Notion API, Slack, Airtable</div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-out-of-stock.png">
+                        <img src="./assets/workflow-out-of-stock.png" alt="Out of Stock Monitor"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Shopify Out-of-Stock Monitor</h3>
+                    <p class="workflow-desc">Monitors Shopify inventory across 4 stores → detects zero-stock products →
+                        checks active Meta & Google ads → auto-pauses ads → Slack alerts. 30-min recheck to prevent
+                        false triggers.</p>
+                    <div class="workflow-stack">Stack: n8n, Shopify API, Meta Ads API, Google Ads API, Slack</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-figma-sync.png">
+                        <img src="./assets/workflow-figma-sync.png" alt="Figma Sync"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Figma → Sheets Campaign Sync</h3>
+                    <p class="workflow-desc">Monitors Figma section statuses through full creative lifecycle (Internal
+                        Approval → Live) → auto-updates Google Sheets tracker. Cross-team visibility for design and
+                        delivery teams.</p>
+                    <div class="workflow-stack">Stack: n8n, Figma API, Google Sheets</div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-brief-generator.png">
+                        <img src="./assets/workflow-brief-generator.png" alt="Brief Generator"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Creative Brief Generator</h3>
+                    <p class="workflow-desc">Form input → Supabase brand lookup → AI image analysis → pulls strategy
+                        docs + review data → generates 3 copy variations per reference → creates structured Notion
+                        brief.</p>
+                    <div class="workflow-stack">Stack: n8n, Supabase, OpenAI, Notion API, Airtable</div>
+                </div>
+
+                <!-- New Workflow: Copy Generator -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-copy-generator.png">
+                        <img src="./assets/workflow-copy-generator.png" alt="Copy Generator"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">AI Copy Generator</h3>
+                    <p class="workflow-desc">Scheduled workflow reads Google Sheets briefs → analyzes past 15 approved
+                        briefs → gathers performance data from Meta & Klaviyo → combines performance + brand voice →
+                        Claude generates variations → syncs to Sheets.</p>
+                    <div class="workflow-stack">Stack: n8n, Google Sheets, Meta Ads API, Klaviyo API, Claude</div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-klaviyo-audit.png">
+                        <img src="./assets/workflow-klaviyo-audit.png" alt="Klaviyo Audit"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Klaviyo Audit Report</h3>
+                    <p class="workflow-desc">Brand selection → Hiro Analytics API for period comparison → calculates %
+                        changes → AI generates performance insights → creates Notion report with block chunking (handles
+                        100+ blocks).</p>
+                    <div class="workflow-stack">Stack: n8n, Hiro Analytics API, Notion API, OpenAI</div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-sales-update.png">
+                        <img src="./assets/workflow-sales-update.png" alt="Sales Update"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-production">Production</span>
+                    <h3 class="workflow-title">Sales Update Form</h3>
+                    <p class="workflow-desc">Triggers on webhook from in lovable. Creates new entry in google sheets
+                        database, sends update messages to slack, creates notion task, updates or creates contact in
+                        Drip.</p>
+                    <div class="workflow-stack">Stack: n8n, Drip, Notion, Slack, Google Sheets, Lovable</div>
+                </div>
+
+                <!-- Template 1 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-inbox-autopilot.png">
+                        <img src="./assets/workflow-inbox-autopilot.png" alt="Inbox Autopilot"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-template">Template</span>
+                    <h3 class="workflow-title">Inbox Autopilot</h3>
+                    <p class="workflow-desc">Gmail trigger → AI classification with structured output → auto-labels →
+                        Postgres + PGVector storage → weekly digest email → RAG chatbot for email search. 23 nodes.</p>
+                    <div class="workflow-stack">Stack: n8n, OpenAI, PostgreSQL, PGVector, Gmail</div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-feedback-intelligence.png">
+                        <img src="./assets/workflow-feedback-intelligence.png" alt="Feedback Intelligence"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-template">Template</span>
+                    <h3 class="workflow-title">Customer Feedback Intelligence</h3>
+                    <p class="workflow-desc">Webhook intake → AI classifies sentiment, category, urgency, feature
+                        requests → vector storage → weekly Slack trends report → product insights chatbot. 20 nodes.</p>
+                    <div class="workflow-stack">Stack: n8n, OpenAI, PostgreSQL, PGVector, Slack</div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-followup-radar.png">
+                        <img src="./assets/workflow-followup-radar.png" alt="Follow Up Radar"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-template">Template</span>
+                    <h3 class="workflow-title">Follow-Up Radar</h3>
+                    <p class="workflow-desc">Daily scan for unreplied sent emails → checks Google Calendar to skip
+                        booked contacts → AI drafts follow-ups → logs to Sheets → Slack summary by urgency. 18 nodes.
+                    </p>
+                    <div class="workflow-stack">Stack: n8n, OpenAI, Gmail, Google Calendar, Slack</div>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="workflow-card fade-in">
+                    <div class="workflow-image-container lightbox-trigger"
+                        data-imgsrc="./assets/workflow-content-decay.png">
+                        <img src="./assets/workflow-content-decay.png" alt="Content Decay"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="workflow-placeholder" style="display: none;">PREVIEW</span>
+                    </div>
+                    <span class="workflow-tag tag-template">Template</span>
+                    <h3 class="workflow-title">Content Decay Radar</h3>
+                    <p class="workflow-desc">Weekly Search Console pull → 28-day performance comparison → filters
+                        declining pages → AI diagnoses cause → Slack report by severity → Notion audit → SEO chatbot. 22
+                        nodes.</p>
+                    <div class="workflow-stack">Stack: n8n, Google Search Console, OpenAI, Slack, Notion</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical DNA Section -->
+    <section id="tech" class="fade-in">
+        <div class="container">
+            <h2 style="text-align: center;">TECHNICAL DNA</h2>
+
+            <!-- 2D Marquee Tech Stack -->
+            <div class="marquee-wrapper">
+                <!-- Row 1: AI & Automation -->
+                <div class="marquee-row anim-left">
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/n8n/0071e3" alt=""
+                                onerror="this.style.display='none'"> n8n</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/claude/0071e3" alt=""
+                                onerror="this.style.display='none'"> Claude</div>
+                        <div class="dna-pill"><img src="./assets/openai.webp" alt=""> OpenAI</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlegemini/0071e3" alt=""
+                                onerror="this.style.display='none'"> Gemini</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/mistralai/0071e3" alt=""
+                                onerror="this.style.display='none'"> Mistral</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/perplexity/0071e3" alt=""
+                                onerror="this.style.display='none'"> Perplexity</div>
+                        <div class="dna-pill"><img src="./assets/claudecode.png" alt=""> Claude Code</div>
+                        <div class="dna-pill"><img src="./assets/lovable-color.png" alt=""> Lovable</div>
+                        <div class="dna-pill"><img src="./assets/antigravity.png" alt=""> Antigravity</div>
+                    </div>
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/n8n/0071e3" alt=""
+                                onerror="this.style.display='none'"> n8n</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/claude/0071e3" alt=""
+                                onerror="this.style.display='none'"> Claude</div>
+                        <div class="dna-pill"><img src="./assets/openai.webp" alt=""> OpenAI</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlegemini/0071e3" alt=""
+                                onerror="this.style.display='none'"> Gemini</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/mistralai/0071e3" alt=""
+                                onerror="this.style.display='none'"> Mistral</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/perplexity/0071e3" alt=""
+                                onerror="this.style.display='none'"> Perplexity</div>
+                        <div class="dna-pill"><img src="./assets/claudecode.png" alt=""> Claude Code</div>
+                        <div class="dna-pill"><img src="./assets/lovable-color.png" alt=""> Lovable</div>
+                        <div class="dna-pill"><img src="./assets/antigravity.png" alt=""> Antigravity</div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Frontend & Database -->
+                <div class="marquee-row anim-right">
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/supabase/0071e3" alt=""
+                                onerror="this.style.display='none'"> Supabase</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/postgresql/0071e3" alt=""
+                                onerror="this.style.display='none'"> PostgreSQL</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/postgresql/0071e3" alt=""
+                                onerror="this.style.display='none'"> PGVector</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlebigquery/0071e3" alt=""
+                                onerror="this.style.display='none'"> BigQuery</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/airtable/0071e3" alt=""
+                                onerror="this.style.display='none'"> Airtable</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/react/0071e3" alt=""
+                                onerror="this.style.display='none'"> React/Vite</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/javascript/0071e3" alt=""
+                                onerror="this.style.display='none'"> JavaScript</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/python/0071e3" alt=""
+                                onerror="this.style.display='none'"> Python</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/html5/0071e3" alt=""
+                                onerror="this.style.display='none'"> HTML/CSS</div>
+                    </div>
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/supabase/0071e3" alt=""
+                                onerror="this.style.display='none'"> Supabase</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/postgresql/0071e3" alt=""
+                                onerror="this.style.display='none'"> PostgreSQL</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/postgresql/0071e3" alt=""
+                                onerror="this.style.display='none'"> PGVector</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlebigquery/0071e3" alt=""
+                                onerror="this.style.display='none'"> BigQuery</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/airtable/0071e3" alt=""
+                                onerror="this.style.display='none'"> Airtable</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/react/0071e3" alt=""
+                                onerror="this.style.display='none'"> React/Vite</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/javascript/0071e3" alt=""
+                                onerror="this.style.display='none'"> JavaScript</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/python/0071e3" alt=""
+                                onerror="this.style.display='none'"> Python</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/html5/0071e3" alt=""
+                                onerror="this.style.display='none'"> HTML/CSS</div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Platforms -->
+                <div class="marquee-row anim-left">
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="./assets/slack.png" alt=""> Slack</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/notion/0071e3" alt=""
+                                onerror="this.style.display='none'"> Notion</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/figma/0071e3" alt=""
+                                onerror="this.style.display='none'"> Figma</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/meta/0071e3" alt=""
+                                onerror="this.style.display='none'"> Meta Ads</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/google/0071e3" alt=""
+                                onerror="this.style.display='none'"> Google Ads</div>
+                        <div class="dna-pill"><img src="./assets/klaviyo.png" alt=""> Klaviyo</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/shopify/0071e3" alt=""
+                                onerror="this.style.display='none'"> Shopify</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/gmail/0071e3" alt=""
+                                onerror="this.style.display='none'"> Gmail</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlesheets/0071e3" alt=""
+                                onerror="this.style.display='none'"> Google Sheets</div>
+                    </div>
+                    <div class="marquee-content">
+                        <div class="dna-pill"><img src="./assets/slack.png" alt=""> Slack</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/notion/0071e3" alt=""
+                                onerror="this.style.display='none'"> Notion</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/figma/0071e3" alt=""
+                                onerror="this.style.display='none'"> Figma</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/meta/0071e3" alt=""
+                                onerror="this.style.display='none'"> Meta Ads</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/google/0071e3" alt=""
+                                onerror="this.style.display='none'"> Google Ads</div>
+                        <div class="dna-pill"><img src="./assets/klaviyo.png" alt=""> Klaviyo</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/shopify/0071e3" alt=""
+                                onerror="this.style.display='none'"> Shopify</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/gmail/0071e3" alt=""
+                                onerror="this.style.display='none'"> Gmail</div>
+                        <div class="dna-pill"><img src="https://cdn.simpleicons.org/googlesheets/0071e3" alt=""
+                                onerror="this.style.display='none'"> Google Sheets</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: var(--bg-secondary);" class="fade-in">
+        <div class="container">
+            <h2 style="text-align: center;">EDUCATION</h2>
+
+            <div class="edu-grid">
+                <div class="edu-card fade-in">
+                    <span class="edu-year">2025–2026</span>
+                    <h3 class="edu-school"><img src="./assets/rennessb.jpg" alt="RSB">Rennes School of Business</h3>
+                    <div class="edu-location">France</div>
+                </div>
+                <div class="edu-card fade-in">
+                    <span class="edu-year">2024–2025</span>
+                    <h3 class="edu-school"><img src="./assets/ucll.png" alt="UCLL">UC Leuven-Limburg</h3>
+                    <div class="edu-location">Belgium</div>
+                </div>
+                <div class="edu-card fade-in">
+                    <span class="edu-year">2023–2024</span>
+                    <h3 class="edu-school"><img src="./assets/laurea.png" alt="Laurea">Laurea University of Applied
+                        Sciences</h3>
+                    <div class="edu-location">Finland</div>
+                </div>
+            </div>
+
+            <div class="edu-summary fade-in">
+                <h3 style="margin-bottom: 0.5rem;">Degree: Business Management Across Europe (BME)</h3>
+                <p style="margin-bottom: 0;">Joint Bachelor's across 3 institutions</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="container fade-in">
+            <h2 style="margin-bottom: 1.5rem;">LET'S BUILD<br>SOMETHING.</h2>
+            <p class="footer-tagline">
+                I'm currently available for projects — automation engineering,
+                AI agent development, or consulting on workflow strategy.
+            </p>
+            <div class="footer-ctas">
+                <a href="mailto:Ferree@me.com" class="footer-cta-primary">
+                    <img src="./assets/email.png" width="18" alt="">
+                    Ferree@me.com
+                </a>
+                <a href="https://linkedin.com/in/ferreeheijmans" target="_blank" rel="noopener noreferrer" class="footer-cta-secondary">
+                    <img src="./assets/linkedin.svg" width="18" alt="" style="filter: invert(1);">
+                    LinkedIn
+                </a>
+            </div>
+            <p class="footer-copy">© 2026 Ferree Heijmans</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img src="" alt="Expanded View" class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize scripts when loaded
+        window.addEventListener('load', () => {
+            initScrollAnimations();
+            initNumberCounters();
+            initCardTilt();
+            initLightbox();
+        });
+
+        // Lightbox Logic
+        const initLightbox = () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+
+            document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const imgSrc = trigger.getAttribute('data-imgsrc');
+                    if (imgSrc) {
+                        lightboxImg.src = imgSrc;
+                        lightbox.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+            if (lightbox) lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) closeLightbox();
+            });
+        };
+
+        // 3D Card Tilt Logic
+        const initCardTilt = () => {
+            if (window.innerWidth < 1024) return;
+            const cards = document.querySelectorAll('.workflow-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -2;
+                    const rotateY = ((x - centerX) / centerX) * 2;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.005)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+                });
+            });
+        };
+
+        // Intersection Observer for Scroll Animations
+        const initScrollAnimations = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
+            });
+        };
+
+        // Animate Number Counters when in view
+        const initNumberCounters = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'));
+                        const prefix = el.getAttribute('data-prefix') || '';
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        animateValue(el, 0, target, 2000, prefix, suffix);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-value').forEach((el) => {
+                observer.observe(el);
+            });
+        }
+
+        const animateValue = (obj, start, end, duration, prefix, suffix) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Easing out function
+                const easeOut = progress * (2 - progress);
+                const currentVal = Math.floor(easeOut * (end - start) + start);
+                obj.innerHTML = prefix + currentVal + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerHTML = prefix + end + suffix;
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+    </script>
+</body>
+
+</html>
