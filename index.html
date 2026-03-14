@@ -947,6 +947,202 @@
             z-index: 10;
             font-family: var(--font-mono);
         }
+
+        /* ============================================
+           Hamburger & Mobile Menu
+           ============================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 5px;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            display: none;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mobile-menu ul {
+            padding: 0.5rem 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu ul li a {
+            display: block;
+            padding: 1rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu ul li:last-child a {
+            border-bottom: none;
+        }
+
+        .mobile-menu ul li a:hover,
+        .mobile-menu ul li a:active {
+            color: var(--accent);
+        }
+
+        /* ============================================
+           Mobile Media Queries
+           ============================================ */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4.5rem 0;
+                --header-height: 60px;
+            }
+
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            /* Nav: hide desktop links, show hamburger */
+            #nav-links {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            /* About section: stack vertically */
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            /* Reduce h2 bottom margin */
+            h2 {
+                margin-bottom: 2rem;
+            }
+
+            /* n8n flow in hero */
+            .n8n-flow {
+                max-width: 300px;
+            }
+
+            /* Workflow grid: single column */
+            .workflows-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Stats */
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            /* Timeline */
+            .timeline::before {
+                left: 4px;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -1px;
+            }
+
+            /* Education cards */
+            .edu-card {
+                min-width: 260px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 4rem 0 2.5rem;
+            }
+
+            .footer-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-cta-primary,
+            .footer-cta-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-padding: 3.5rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 
@@ -959,7 +1155,7 @@
                 <img src="./assets/Ferrree Heijmans_Headshot.jpg" alt="Ferree Heijmans"
                     style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-sm);">
             </a>
-            <ul style="display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">
+            <ul id="nav-links" style="display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#workflows">Workflows</a></li>
@@ -970,8 +1166,24 @@
                 <span class="availability-dot"></span>
                 Available for projects
             </span>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#workflows" class="mobile-nav-link">Workflows</a></li>
+            <li><a href="#tech" class="mobile-nav-link">Tech</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero"
@@ -988,7 +1200,7 @@
                     <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--text-primary);">
                         I build systems that save teams 200+ hours and $50K+ per month.
                     </p>
-                    <div style="display: flex; gap: 1rem;">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                         <a href="#workflows" class="btn btn-primary">View My Work ↓</a>
                         <a href="https://linkedin.com/in/ferreeheijmans" target="_blank"
                             class="btn btn-secondary">LinkedIn →</a>
@@ -1581,6 +1793,7 @@
             initNumberCounters();
             initCardTilt();
             initLightbox();
+            initMobileMenu();
         });
 
         // Lightbox Logic
@@ -1674,6 +1887,27 @@
                 observer.observe(el);
             });
         }
+
+        // Mobile Hamburger Menu
+        const initMobileMenu = () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!hamburger || !mobileMenu) return;
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                mobileMenu.classList.toggle('open');
+                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        };
 
         const animateValue = (obj, start, end, duration, prefix, suffix) => {
             let startTimestamp = null;
