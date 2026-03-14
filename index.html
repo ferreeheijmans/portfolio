@@ -1063,10 +1063,38 @@
                 display: block;
             }
 
+            /* Hero: extra breathing room below nav, remove full-height lock */
+            #hero {
+                min-height: 0 !important;
+                padding-top: calc(var(--header-height) + 2.5rem) !important;
+                padding-bottom: 4rem;
+            }
+
+            /* Hero flex: tighter gap, items centered */
+            .hero-flex {
+                gap: 2rem !important;
+                align-items: center !important;
+            }
+
+            /* n8n flow: smaller and centred */
+            .n8n-flow {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+
             /* About section: stack vertically */
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+
+            /* Stats cards: reduce padding so values breathe */
+            .stat-card {
+                padding: 1.25rem;
+            }
+
+            .stat-value {
+                font-size: 2.25rem;
             }
 
             /* Reduce h2 bottom margin */
@@ -1074,19 +1102,9 @@
                 margin-bottom: 2rem;
             }
 
-            /* n8n flow in hero */
-            .n8n-flow {
-                max-width: 300px;
-            }
-
             /* Workflow grid: single column */
             .workflows-grid {
                 grid-template-columns: 1fr !important;
-            }
-
-            /* Stats */
-            .stat-value {
-                font-size: 2.5rem;
             }
 
             /* Timeline */
@@ -1102,9 +1120,18 @@
                 left: -1px;
             }
 
-            /* Education cards */
+            /* Education: vertical stack instead of horizontal scroll */
+            .edu-grid {
+                flex-direction: column;
+                overflow-x: visible;
+                scroll-snap-type: none;
+                gap: 1rem;
+            }
+
             .edu-card {
-                min-width: 260px;
+                min-width: 0;
+                width: 100%;
+                flex: none;
             }
 
             /* Footer */
@@ -1134,8 +1161,14 @@
                 padding: 0 1rem;
             }
 
+            /* Stats: drop to single column so values never overflow */
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
             .stat-value {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .btn {
