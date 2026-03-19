@@ -169,7 +169,7 @@
             align-items: center;
             gap: 0.4rem;
             font-family: var(--font-mono);
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: #34c759;
             padding: 0.3rem 0.75rem;
             border: 1px solid rgba(52, 199, 89, 0.3);
@@ -424,7 +424,7 @@
         }
 
         .workflow-card:hover {
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             transform: scale(1.003);
         }
 
@@ -929,7 +929,7 @@
 
         .footer-copy {
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.3);
             letter-spacing: 0.05em;
         }
@@ -1152,6 +1152,88 @@
             }
         }
 
+        /* ============================================
+           Audit fixes: missing states, signifiers, a11y
+           ============================================ */
+
+        /* Keyboard focus ring */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Nav hover + active state */
+        #nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        #nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Button active (pressed) states */
+        .btn-primary:active {
+            transform: translateY(0);
+            opacity: 0.85;
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+            background: var(--bg-secondary);
+        }
+
+        .footer-cta-primary:active {
+            transform: translateY(0);
+            opacity: 0.7;
+        }
+
+        .footer-cta-secondary:active {
+            transform: translateY(0);
+            opacity: 0.7;
+        }
+
+        /* Lightbox close hover */
+        .lightbox-close:hover {
+            opacity: 0.7;
+        }
+
+        /* Workflow image expand hint on hover */
+        .workflow-image-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s ease;
+            border-radius: 0.5rem;
+            z-index: 1;
+        }
+
+        .workflow-image-container:hover::before {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .workflow-image-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.95) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 18px no-repeat;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .workflow-image-container:hover::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
         @media (max-width: 480px) {
             :root {
                 --section-padding: 3.5rem 0;
@@ -1222,14 +1304,14 @@
     <section id="hero"
         style="min-height: 100vh; display: flex; align-items: center; padding-top: var(--header-height);">
         <div class="container">
-            <div style="display: flex; flex-direction: column-reverse; gap: 4rem; align-items: center;"
+            <div style="display: flex; flex-direction: column; gap: 4rem; align-items: center;"
                 class="hero-flex">
                 <div style="flex: 1; max-width: 600px;">
                     <h1 style="margin-bottom: 0.5rem; line-height: 0.9;">FERREE HEIJMANS</h1>
-                    <h2
-                        style="font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: none; letter-spacing: 0; font-family: var(--font-body); font-weight: 500;">
+                    <p
+                        style="font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; font-family: var(--font-body); font-weight: 500;">
                         AI & Automation Strategist
-                    </h2>
+                    </p>
                     <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--text-primary);">
                         I build systems that save teams 200+ hours and $50K+ per month.
                     </p>
@@ -1555,8 +1637,8 @@
                     </div>
                     <span class="workflow-tag tag-production">Production</span>
                     <h3 class="workflow-title">Sales Update Form</h3>
-                    <p class="workflow-desc">Triggers on webhook from in lovable. Creates new entry in google sheets
-                        database, sends update messages to slack, creates notion task, updates or creates contact in
+                    <p class="workflow-desc">Triggers on webhook from a Lovable app. Creates new entry in Google Sheets,
+                        sends update messages to Slack, creates Notion task, updates or creates contact in
                         Drip.</p>
                     <div class="workflow-stack">Stack: n8n, Drip, Notion, Slack, Google Sheets, Lovable</div>
                 </div>
@@ -1827,6 +1909,7 @@
             initCardTilt();
             initLightbox();
             initMobileMenu();
+            initActiveNav();
         });
 
         // Lightbox Logic
@@ -1940,6 +2023,25 @@
                     document.body.style.overflow = '';
                 });
             });
+        };
+
+        // Active nav link highlight on scroll
+        const initActiveNav = () => {
+            const sections = document.querySelectorAll('section[id], footer[id]');
+            const navLinks = document.querySelectorAll('#nav-links a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                        });
+                    }
+                });
+            }, { rootMargin: '-40% 0px -55% 0px' });
+
+            sections.forEach(section => observer.observe(section));
         };
 
         const animateValue = (obj, start, end, duration, prefix, suffix) => {
